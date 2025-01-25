@@ -1,0 +1,26 @@
+[project]
+name = "checkmail"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [{ name = "AmaseCocoa", email = "cocoa@amase.cc" }]
+dependencies = [
+    "litestar[standard]>=2.14.0",
+    "aiohttp[speedups]>=3.11.11",
+    "apsw>=3.48.0.0",
+    "regex>=2024.11.6",
+    "winloop; platform_system == 'Windows'",
+    "uvloop; platform_system != 'Windows'",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+
+
+[project.optional-dependencies]
+postgres = ["asyncpg>=0.30.0"]
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.scripts]
+start = "python src/index.py"
